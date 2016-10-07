@@ -65,19 +65,6 @@ namespace vkSmartWall
             this.uid = uid;
         }
 
-
-
-
-        /*public void SayHello()
-        {
-            Console.WriteLine("Hello, my ID is " + this.uid);
-        }*/
-
-        /*public String getUserInfo()
-        {
-            //String url = "https://api.vk.com/method/users.get?user_ids=42560016,71985644,mr.pavlichenkov";
-            return "";
-        } */
    
     }
 
@@ -93,8 +80,45 @@ namespace vkSmartWall
         public List<UserBaseInfo> response { get; set; }
     }
 
-    public class FriendsIdsList
+    public class UsersBaseInfo
     {
-        public List<int> response { get; set; }
+        public int uid { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public int? hidden { get; set; }
+        public string deactivated { get; set; }
     }
+
+    public class RootUsersBaseInfo
+    {
+        public List<UsersBaseInfo> response { get; set; }
+    }
+
+    //public class FriendsIdsList
+    //{
+    //    public List<int> response { get; set; }
+    //}
+
+
+    public class Friend
+    {
+        public int id { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public string deactivated { get; set; }
+        public int? hidden { get; set; }
+        public List<int?> lists { get; set; }
+    }
+
+    public class FriendsList
+    {
+        public int count { get; set; }
+        public List<Friend> items { get; set; }
+    }
+
+    public class RootFriendsList
+    {
+        public FriendsList response { get; set; }
+    }
+
 }
